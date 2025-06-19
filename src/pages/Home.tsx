@@ -19,14 +19,14 @@ const Home = () => {
       icon: Globe,
       title: "Global Reach",
       description:
-        "Serving clients across Europe, Middle East, Americas, Asia, and Africa",
+        "Serving 500+ clients across Europe, Middle East, Americas, Asia, and Africa",
       delay: "0.1s",
     },
     {
       icon: Users,
-      title: "B2B Focus",
+      title: "8+ Years Experience",
       description:
-        "Specialized solutions for clubs, academies, distributors, and teams",
+        "Established in 2016 with 50+ team members delivering excellence",
       delay: "0.2s",
     },
     {
@@ -38,9 +38,8 @@ const Home = () => {
     },
     {
       icon: Truck,
-      title: "Bulk Orders",
-      description:
-        "Competitive pricing for large quantity orders and customization",
+      title: "1000+ Shipments",
+      description: "Successful global deliveries with competitive bulk pricing",
       delay: "0.4s",
     },
   ];
@@ -74,26 +73,26 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: "Marco Rossi",
-      company: "AC Milan Youth Academy",
-      country: "Italy",
-      text: "FIDAQ Sports has been our trusted partner for 3 years. Exceptional quality and service.",
+      name: "Global Sportswear Buyer",
+      company: "Europe",
+      country: "",
+      text: "FIDAQ SPORTS consistently delivers world-class quality and attention to detail. We trust them as our long-term manufacturing partner.",
       rating: 5,
       delay: "0.1s",
     },
     {
-      name: "Sarah Johnson",
-      company: "Premier Sports Club",
-      country: "UK",
-      text: "Outstanding customization options and fast delivery. Highly recommended for bulk orders.",
+      name: "International Sports Club Director",
+      company: "USA",
+      country: "",
+      text: "Exceptional service, fast production times, and truly premium product finishes. Highly recommended.",
       rating: 5,
       delay: "0.2s",
     },
     {
-      name: "Ahmed Al-Rashid",
-      company: "Dubai Sports Academy",
-      country: "UAE",
-      text: "Professional quality equipment that meets international standards. Great partnership.",
+      name: "Academy Manager",
+      company: "Middle East",
+      country: "",
+      text: "Working with FIDAQ SPORTS has been a seamless experience from design to delivery. Excellent customer care.",
       rating: 5,
       delay: "0.3s",
     },
@@ -123,7 +122,7 @@ const Home = () => {
             <h1 className="font-gliker-bold text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-shadow">
               FIDAQ SPORTS
               <span className="block text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-300 mt-4">
-                Professional Sports Equipment Manufacturer
+                Professional Sports Equipment Manufacturer Since 2016
               </span>
             </h1>
 
@@ -131,9 +130,10 @@ const Home = () => {
               className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-in-left"
               style={{ animationDelay: "0.3s" }}
             >
-              Serving athletes, coaches, clubs, and distributors worldwide with
-              premium sports equipment, custom uniforms, and professional gear.
-              From Europe to Asia, Americas to Africa.
+              Serving 500+ clients worldwide with premium sports equipment,
+              custom uniforms, and professional gear. Trusted by clubs,
+              academies and distributors across Europe, Asia, Americas and
+              Africa.
             </p>
 
             <div
@@ -178,7 +178,7 @@ const Home = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're not just a supplier – we're your strategic partner in sports
-              excellence
+              excellence with 8+ years of manufacturing experience
             </p>
           </div>
 
@@ -255,7 +255,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="font-gliker-bold text-4xl sm:text-5xl font-bold text-black mb-6 text-gradient">
-              Trusted by Professionals Worldwide
+              Trusted by 500+ Clients Worldwide
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See what our international clients say about our products and
@@ -286,7 +286,11 @@ const Home = () => {
                     {testimonial.name}
                   </h4>
                   <p className="text-sm text-gray-600">{testimonial.company}</p>
-                  <p className="text-sm text-gray-500">{testimonial.country}</p>
+                  {testimonial.country && (
+                    <p className="text-sm text-gray-500">
+                      {testimonial.country}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -302,8 +306,8 @@ const Home = () => {
               Ready to Partner with Us?
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              Join thousands of satisfied clients worldwide. Get a custom quote
-              for your team, club, or distribution needs.
+              Join our 500+ satisfied clients worldwide. Get a custom quote for
+              your team, club, or distribution needs.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

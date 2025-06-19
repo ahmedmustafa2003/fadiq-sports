@@ -8,6 +8,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Clock,
 } from "lucide-react";
 import Logo from "../assets/images/Logo_original_white.png";
 
@@ -15,9 +16,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
   const quickLinks = [
@@ -61,36 +60,42 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-3">
               <img
                 src={Logo}
-                alt="Company Logo"
+                alt="FIDAQ Sports Logo"
                 className="h-20 w-auto rounded"
               />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold tracking-wider">FIDAQ</span>
-                <span className="text-sm font-medium tracking-widest text-gray-400">
-                  SPORTS
-                </span>
-              </div>
             </Link>
 
             <p className="text-gray-400 leading-relaxed max-w-md">
-              Leading manufacturer of professional sports equipment and apparel,
-              serving athletes, teams, and organizations worldwide since 2008.
+              Professional manufacturer of sports equipment and apparel since
+              2016, serving 500+ clients worldwide with 1000+ successful
+              shipments.
             </p>
 
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-400">
-                  Global Headquarters, Europe
-                </span>
+                <span className="text-gray-400">Sialkot, Punjab, Pakistan</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-400">+33 1 23 45 67 89</span>
+                <span className="text-gray-400">+92 334 0022920</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-400">info@fidaqsports.com</span>
+                <span className="text-gray-400">fidaq@fidaqsports.com</span>
+              </div>
+              <div className="flex items-start space-x-3 pt-2">
+                <Clock className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
+                <div className="text-gray-400 text-sm">
+                  <p>
+                    <strong>Working Hours (Local):</strong> Mon–Sat: 9:00 AM to
+                    6:00 PM (Pakistan Standard Time)
+                  </p>
+                  <p>
+                    <strong>Working Hours (International):</strong> Mon–Sat:
+                    9:00 AM to 8:00 PM (International Support)
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -160,44 +165,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Global Presence */}
-        <div className="py-8 border-t border-gray-800">
-          <h3 className="text-lg font-semibold mb-4">Global Presence</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {regions.map((region, index) => (
-              <div key={index} className="text-gray-400 text-sm">
-                • {region}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Newsletter */}
-        <div className="py-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
-              <p className="text-gray-400">
-                Get the latest news about our products and industry insights
-              </p>
-            </div>
-            <div className="flex w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-80 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-white text-white"
-              />
-              <button className="bg-white text-black px-6 py-3 rounded-r-lg font-semibold hover:bg-gray-100 transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="py-6 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between">
           <p className="text-gray-400 text-sm">
-            © 2024 FIDAQ Sports. All rights reserved.
+            © {new Date().getFullYear()} FIDAQ Sports. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <span className="text-gray-400 text-sm">Certified by:</span>
