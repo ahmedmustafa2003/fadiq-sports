@@ -1,66 +1,98 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Mail, Lock, User, Building, Globe } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff, Mail, Lock, User, Building, Globe } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
+import Logo from "../assets/images/Logo_black.png";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    company: '',
-    country: '',
-    businessType: '',
-    phone: ''
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    company: "",
+    country: "",
+    businessType: "",
+    phone: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  
+  const [error, setError] = useState("");
+
   const { register } = useAuth();
   const navigate = useNavigate();
 
   const countries = [
-    'France', 'Germany', 'Italy', 'Spain', 'Netherlands', 'Portugal', 'Poland',
-    'United Kingdom', 'Belgium', 'Austria', 'Switzerland', 'Sweden', 'Norway',
-    'United States', 'Canada', 'Mexico', 'Brazil', 'Argentina', 'Chile',
-    'UAE', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Egypt', 'Morocco',
-    'South Africa', 'Nigeria', 'Kenya', 'Ghana',
-    'China', 'Japan', 'South Korea', 'India', 'Australia', 'Singapore'
+    "France",
+    "Germany",
+    "Italy",
+    "Spain",
+    "Netherlands",
+    "Portugal",
+    "Poland",
+    "United Kingdom",
+    "Belgium",
+    "Austria",
+    "Switzerland",
+    "Sweden",
+    "Norway",
+    "United States",
+    "Canada",
+    "Mexico",
+    "Brazil",
+    "Argentina",
+    "Chile",
+    "UAE",
+    "Saudi Arabia",
+    "Qatar",
+    "Kuwait",
+    "Egypt",
+    "Morocco",
+    "South Africa",
+    "Nigeria",
+    "Kenya",
+    "Ghana",
+    "China",
+    "Japan",
+    "South Korea",
+    "India",
+    "Australia",
+    "Singapore",
   ];
 
   const businessTypes = [
-    'Sports Club/Team',
-    'Academy/School',
-    'Distributor',
-    'Retailer',
-    'Sports Facility',
-    'Event Organizer',
-    'Other'
+    "Sports Club/Team",
+    "Academy/School",
+    "Distributor",
+    "Retailer",
+    "Sports Facility",
+    "Event Organizer",
+    "Other",
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
+    setError("");
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       setIsLoading(false);
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError("Password must be at least 6 characters long");
       setIsLoading(false);
       return;
     }
@@ -68,12 +100,12 @@ const Register = () => {
     try {
       const success = await register(formData);
       if (success) {
-        navigate('/dashboard');
+        navigate("/dashboard");
       } else {
-        setError('Registration failed. Please try again.');
+        setError("Registration failed. Please try again.");
       }
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError("Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -84,13 +116,11 @@ const Register = () => {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-black transform rotate-45 flex items-center justify-center">
-              <div className="w-10 h-10 bg-white transform -rotate-45 flex items-center justify-center">
-                <div className="w-5 h-5 bg-black transform rotate-45"></div>
-              </div>
-            </div>
+            <img src={Logo} alt="image_logo" className="h-24" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">Create B2B Account</h2>
+          <h2 className="text-3xl font-bold text-gray-900">
+            Create B2B Account
+          </h2>
           <p className="mt-2 text-sm text-gray-600">
             Join our network of professional sports organizations worldwide
           </p>
@@ -106,11 +136,17 @@ const Register = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Full Name *
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <User
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     id="name"
                     name="name"
@@ -125,11 +161,17 @@ const Register = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email Address *
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Mail
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     id="email"
                     name="email"
@@ -146,15 +188,21 @@ const Register = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Password *
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Lock
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     id="password"
                     name="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     required
                     value={formData.password}
                     onChange={handleChange}
@@ -172,15 +220,21 @@ const Register = () => {
               </div>
 
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Confirm Password *
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Lock
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     id="confirmPassword"
                     name="confirmPassword"
-                    type={showConfirmPassword ? 'text' : 'password'}
+                    type={showConfirmPassword ? "text" : "password"}
                     required
                     value={formData.confirmPassword}
                     onChange={handleChange}
@@ -192,7 +246,11 @@ const Register = () => {
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
-                    {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showConfirmPassword ? (
+                      <EyeOff size={20} />
+                    ) : (
+                      <Eye size={20} />
+                    )}
                   </button>
                 </div>
               </div>
@@ -200,11 +258,17 @@ const Register = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Company/Organization *
                 </label>
                 <div className="relative">
-                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Building
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     id="company"
                     name="company"
@@ -219,7 +283,10 @@ const Register = () => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -236,11 +303,17 @@ const Register = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Country *
                 </label>
                 <div className="relative">
-                  <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Globe
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <select
                     id="country"
                     name="country"
@@ -251,14 +324,19 @@ const Register = () => {
                   >
                     <option value="">Select country</option>
                     {countries.map((country) => (
-                      <option key={country} value={country}>{country}</option>
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="businessType" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="businessType"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Business Type *
                 </label>
                 <select
@@ -271,7 +349,9 @@ const Register = () => {
                 >
                   <option value="">Select business type</option>
                   {businessTypes.map((type) => (
-                    <option key={type} value={type}>{type}</option>
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -285,13 +365,22 @@ const Register = () => {
                 required
                 className="h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
               />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                I agree to the{' '}
-                <Link to="/terms-of-service" className="text-black hover:underline">
+              <label
+                htmlFor="terms"
+                className="ml-2 block text-sm text-gray-700"
+              >
+                I agree to the{" "}
+                <Link
+                  to="/terms-of-service"
+                  className="text-black hover:underline"
+                >
                   Terms of Service
-                </Link>{' '}
-                and{' '}
-                <Link to="/privacy-policy" className="text-black hover:underline">
+                </Link>{" "}
+                and{" "}
+                <Link
+                  to="/privacy-policy"
+                  className="text-black hover:underline"
+                >
                   Privacy Policy
                 </Link>
               </label>
@@ -302,13 +391,16 @@ const Register = () => {
               disabled={isLoading}
               className="w-full bg-black text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isLoading ? 'Creating Account...' : 'Create Account'}
+              {isLoading ? "Creating Account..." : "Create Account"}
             </button>
 
             <div className="text-center">
               <p className="text-sm text-gray-600">
-                Already have an account?{' '}
-                <Link to="/login" className="font-medium text-black hover:underline">
+                Already have an account?{" "}
+                <Link
+                  to="/login"
+                  className="font-medium text-black hover:underline"
+                >
                   Sign in here
                 </Link>
               </p>
