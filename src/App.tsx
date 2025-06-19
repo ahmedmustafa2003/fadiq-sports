@@ -13,7 +13,7 @@ import AdminPanel from "./pages/AdminPanel";
 import BulkInquiry from "./pages/BulkInquiry";
 import { AuthProvider } from "./context/AuthContext";
 import WhatsAppChat from "./components/WhatsAppChat";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/bulk-inquiry" element={<BulkInquiry />} />
-              <Route path="/blog" element={<Blog />} />
+              {/* <Route path="/blog" element={<Blog />} /> */}
             </Routes>
           </main>
           <Footer />
