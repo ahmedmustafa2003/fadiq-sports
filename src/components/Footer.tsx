@@ -9,7 +9,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
-import Logo from "../assets/images/Logo.jpg";
+import Logo from "../assets/images/Logo_original_white.png";
 
 const Footer = () => {
   const socialLinks = [

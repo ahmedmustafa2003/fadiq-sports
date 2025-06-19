@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Search, User } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-import Logo from "../assets/images/Logo.png";
+import Logo from "../assets/images/Logo_black.png";
 import pkFlag from "../assets/images/pakistan_flag.png";
 
 const Header = () => {
@@ -39,13 +39,9 @@ const Header = () => {
           {/* Logo and Company Name - Left */}
           <Link
             to="/"
-            className="flex items-center space-x-3 focus:outline-none hover-lift"
+            className="flex items-center space-x-3 focus:outline-none"
           >
-            <img
-              src={Logo}
-              alt="Company Logo"
-              className="h-14 w-auto rounded-lg"
-            />
+            <img src={Logo} alt="Company Logo" className="h-14 w-auto" />
             <span className="text-2xl font-bold">
               FIDAQ
               <span className="text-gray-400"> SPORTS</span>
@@ -106,11 +102,7 @@ const Header = () => {
             )}
 
             {/* Pakistani Flag */}
-            <img
-              src={pkFlag}
-              alt="Pakistani Flag"
-              className="h-12 w-auto hover-scale"
-            />
+            <img src={pkFlag} alt="Pakistani Flag" className="h-12 w-auto" />
           </div>
 
           {/* Mobile menu button */}
